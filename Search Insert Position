@@ -1,0 +1,46 @@
+Given a sorted array of distinct integers and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+
+You must write an algorithm with O(log n) runtime complexity.
+
+ 
+
+Example 1:
+
+Input: nums = [1,3,5,6], target = 5
+Output: 2
+Example 2:
+
+Input: nums = [1,3,5,6], target = 2
+Output: 1
+Example 3:
+
+Input: nums = [1,3,5,6], target = 7
+Output: 4
+
+
+class Solution {
+public:
+    int searchInsert(vector<int>& nums, int target) {
+        if(nums[0]>=target)//for single element
+            return 0;
+        int low=0;
+        int high=nums.size();
+        while(low<high)
+        {
+            int mid=(low+high)/2;
+            if(nums[mid]==target)
+            {
+                return mid; //if we found the element
+            }
+            else if(nums[mid]>target)
+            {
+                high=mid;//as it has higher value it may be in this index only so not decrementing
+            }
+            else
+            {
+                low=mid+1;//we need higher index so incrementing
+            }
+        }
+        return low; // returning the lower index
+    }
+};

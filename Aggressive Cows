@@ -1,0 +1,38 @@
+bool checkcowscount(vector<int>&stalls,int mid,int k)
+{
+    int cowscnt=1;
+    int lastIndex =0;
+    for(int i=0;i<stalls.size();i++)
+    {
+        if(stalls[i]-stalls[lastIndex]>=mid)
+        {
+            cowscnt++;
+            lastIndex=i;
+        }
+        else
+            continue;
+    }
+    return cowscnt>=k;
+}
+int aggressiveCows(vector<int> &stalls, int k)
+{
+    //    Write your code here.
+    sort(stalls.begin(),stalls.end());
+    int n=stalls.size();
+    int low=1,high=stalls[n-1]-stalls[0];
+    int res=-1e9;
+    while(low<=high)
+    {
+        int mid = (low+high)/2;
+        if(checkcowscount(stalls,mid,k))
+        {
+            res=max(res,low);
+            low=mid+1;
+        }
+        else
+        {
+            high=mid-1;
+        }
+    }   
+    return res;
+}

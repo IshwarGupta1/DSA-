@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+string reverseString(string &str){
+	// Write your code here.	
+	vector<string>wordlist;
+	for(int i=0;i<str.size();i++)
+	{
+		string word="";
+		if(str[i]==' ')
+			continue;
+		else
+		{
+			while(i<str.size()&&str[i]!=' ')
+			{
+				word.push_back(str[i]);
+				i++;
+			}
+		}
+		wordlist.push_back(word);
+	}
+	reverse(wordlist.begin(),wordlist.end());
+	string result="";
+	for(auto it:wordlist)
+	{
+		result.append(it);
+		result.append(" ");
+	}
+	result.pop_back();
+	
+	return result;
+}

@@ -3,6 +3,18 @@
 //Input Format: N = 5, arr[] = {3,5,8,15,19}, x = 9
 //Result: 3
 //Explanation: Index 3 is the smallest index such that arr[3] >= x.
+Approach-
+1. Initialize low to 0 and high to n - 1.
+2. Perform binary search iteration:
+3. Calculate mid as (low + high) / 2.
+4. If arr[mid] < x, update low = mid + 1.
+5. If arr[mid] >= x, update high = mid.
+6. Repeat step 2 until low < high.
+7. Check if high == n - 1 for the edge case, return n.
+8. Return the lower bound, high.
+
+
+
 
 int lowerBound(vector<int> arr, int n, int x) {
 	// Write your code here

@@ -22,7 +22,7 @@ class Solution
             swap(str[l],str[i]);
             }
         }
-        solve(str,res,l+1,h,k);
+        solve(str,res,l+1,h,k); // we added this to check results we are getting that are not specifically at leaf node level
     }
     //Function to find the largest number after k swaps.
     string findMaximumNum(string str, int k)

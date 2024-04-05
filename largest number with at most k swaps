@@ -12,9 +12,15 @@ class Solution
         }
         for(int i=l+1;i<=h;i++)
         {
-            swap(str[l],str[i]);
+            char maxiChar = *max_element(str.begin()+i,str.end());
+            if(str[i] > str[l] && str[i]==maxiChar)
+            {
+             swap(str[l],str[i]);
+            solve(str,res,l+1,h,k-1);
+            swap(str[l],str[i]);   swap(str[l],str[i]);
             solve(str,res,l+1,h,k-1);
             swap(str[l],str[i]);
+            }
         }
         solve(str,res,l+1,h,k);
     }

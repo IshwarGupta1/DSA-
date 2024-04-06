@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+
+#include<vector>
+
+ 
+
+void findunique(int ind,vector<vector<int>> &ans, vector<int> &ds,vector<int>& arr)
+
+{
+
+    ans.push_back(ds);
+
+    for(int i=ind;i<arr.size();i++)
+
+    {
+
+        if(i!=ind && arr[i] == arr[i-1])continue;
+
+ 
+
+        ds.push_back(arr[i]);
+
+        findunique(i+1,ans,ds,arr);
+
+        ds.pop_back();
+
+    }
+
+}
+
+ 
+
+vector<vector<int>> getUniqueSubsets(vector<int>& arr) {
+
+    // Write Your Code Here    
+
+    vector<int>ds;
+
+    vector<vector<int>>ans;
+
+    sort(arr.begin(),arr.end());
+
+    findunique(0,ans,ds,arr);
+
+    return ans;
+
+}

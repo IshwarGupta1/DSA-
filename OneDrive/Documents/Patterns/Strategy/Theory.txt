@@ -1,0 +1,45 @@
+The Strategy Pattern is a behavioral design pattern that enables selecting an algorithm's behavior at runtime. In simple terms, it's like having multiple ways to solve a problem, and you can pick one of those ways dynamically based on your needs.
+
+Explanation for a Noob Developer
+Imagine you have a character in a game that can attack enemies. The character can attack using different weapons, like a sword, a bow, or magic. Instead of hardcoding all the different types of attacks inside the character class, the Strategy Pattern allows you to define each attack as a separate class. Then, the character can pick which attack strategy to use at runtime.
+
+By using the Strategy Pattern, you separate the logic of choosing an attack strategy from the character class itself. This makes your code easier to maintain and extend. You can add new attack strategies without changing the character class.
+
+Real-World Example
+Think of a payment system in an e-commerce app. You can pay by credit card, PayPal, or bank transfer. The Strategy Pattern allows you to implement each payment method as a separate strategy. At runtime, the system will select the appropriate strategy depending on what the user chooses.
+
+Key Points
+Encapsulation of Algorithms: Each algorithm (or strategy) is encapsulated in a separate class. The context class (e.g., Character in the game) uses a reference to a strategy object.
+
+Interchangeable Behavior: You can switch strategies (algorithms) without modifying the context class, making your code more flexible and extensible.
+
+Reduces Conditional Logic: Instead of having long if-else or switch statements to decide which behavior to execute, you delegate this decision to the strategy objects.
+
+Open/Closed Principle: It adheres to the Open/Closed Principle, meaning you can add new strategies without modifying existing code.
+
+Structure
+Strategy (Interface/Abstract Class): Defines the common interface for all concrete strategies.
+
+ConcreteStrategy (Classes): Implements the specific algorithms.
+
+Context (Class): Contains a reference to a strategy object and uses it to perform the algorithm.
+Notes on the Strategy Pattern
+Definition: The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. It lets the algorithm vary independently from the clients that use it.
+
+Use Cases:
+
+When you have multiple algorithms (e.g., different sorting algorithms, payment methods).
+When you want to avoid conditional logic (e.g., many if-else or switch statements).
+When you want to make your code more flexible by changing the behavior at runtime.
+Benefits:
+
+Flexibility: Easily switch between different algorithms or strategies at runtime.
+Extensibility: New strategies can be added without changing the existing context code.
+Code Reusability: Algorithms can be reused in different contexts.
+Drawbacks:
+
+Increased Complexity: It introduces additional classes and objects, which can make the code harder to understand.
+Overhead: If the strategies are simple, the overhead of additional classes may not be worth it.
+Common Misuse: Don't use the Strategy Pattern if you only have one strategy or if the strategies do not change. It is most effective when you need to swap behaviors dynamically.
+
+This pattern is great for scenarios where you want to be able to swap out one piece of logic for another at runtime without modifying the context class that uses it.

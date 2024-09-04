@@ -1,0 +1,16 @@
+User-Session (1-n): One User can organize multiple Sessions.
+Session-Task (1-n): One Session can have multiple Tasks.
+User-Task (n-n): Many Users can vote on many Tasks, with the vote (or selected card) stored as a value in the join table (UserTaskVote).
+
+Instead of explicitly modeling the "Card" entity, you can treat the card selection as a "vote" stored in a join table between User and Task.
+The join table (UserTaskVote) would contain the UserID, TaskID, and the selected CardValue (representing the vote).
+This ensures that each user can only vote once per task.
+Example schema for UserTaskVote:
+
+markdown
+Copy code
+UserTaskVote
+----------------
+UserID (FK)
+TaskID (FK)
+CardValue (e.g., 1, 2, 3, 5, 8, 13, etc.)

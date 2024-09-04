@@ -2,29 +2,35 @@ syntax = "proto3";
 
 option csharp_namespace = "scrumpoker.Proto";
 
-
-message User{
-	int32 id = 1; // user_id
-	string name = 2; // user_name
-	string emailid = 3;
-	string role = 4; // organizer or participant
-	string job = 5; // dev or qa
+message User {
+    int32 id = 1; // user_id
+    string name = 2; // user_name
+    string email = 3; // user_email
+    string role = 4; // organizer or participant
+    string job = 5; // dev, qa, etc.
 }
 
-message Session{
-	int32 id = 1; // session_id
-	string name = 2; // session_name
+message Session {
+    int32 id = 1; // session_id
+    string name = 2; // session_name
+    int32 organizer_id = 3; // reference to the user who created the session
+    repeated Task tasks = 4; // list of tasks in this session
 }
 
-message Card{
-	int32 id = 1; // card_id
-	int32 value = 2; // card_value fibonacci -- 1,2,3,5,8,13
+message Card {
+    int32 id = 1; // card_id
+    int32 value = 2; // card_value (e.g., Fibonacci numbers: 1, 2, 3, 5, 8, 13)
 }
 
-message Task{
-	int32 id = 1; //task_id
-	string name = 2;// task_name
-	string points = 3;// points to task
-	string session_id = 4;// session in which task was created
+message Task {
+    int32 id = 1; // task_id
+    string name = 2; // task_name
+    string points = 3; // estimated points for the task
+    int32 session_id = 4; // reference to the session this task belongs to
+    repeated Vote votes = 5; // list of votes for this task
 }
 
+message Vote {
+    int32 user_id = 1; // reference to the user who voted
+    int32 card_value = 2; // the card value (vote) selected by the user
+}

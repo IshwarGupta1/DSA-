@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+option csharp_namespace = "scrumpoker.Proto";
+
+
+message User{
+	int32 id = 1; // user_id
+	string name = 2; // user_name
+	string emailid = 3;
+	string role = 4; // organizer or participant
+	string job = 5; // dev or qa
+}
+
+message Session{
+	int32 id = 1; // session_id
+	string name = 2; // session_name
+}
+
+message Card{
+	int32 id = 1; // card_id
+	int32 value = 2; // card_value fibonacci -- 1,2,3,5,8,13
+}
+
+message Task{
+	int32 id = 1; //task_id
+	string name = 2;// task_name
+	string points = 3;// points to task
+	string session_id = 4;// session in which task was created
+}
+

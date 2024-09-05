@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option csharp_namespace = "scrumpoker.Proto";
+option csharp_namespace = "scrum_poker.proto";
 
 message User {
     int32 id = 1; // user_id
@@ -33,4 +33,125 @@ message Task {
 message Vote {
     int32 user_id = 1; // reference to the user who voted
     int32 card_value = 2; // the card value (vote) selected by the user
+}
+
+message CreateTaskRequest {
+    Task task = 1; // task details that will be created
+    User user = 2; // user that creates the task
+}
+
+message ReadTaskRequest {
+    Task task = 1; // task details that will be read
+}
+
+message UpdateTaskRequest {
+    Task task = 1; // task details that will be updated
+    User user = 2; // user that updates the task
+}
+
+message DeleteTaskRequest {
+    Task task = 1; // task details that will be deleted
+    User user = 2; // user that deletes the task
+}
+
+message TaskResponse { 
+    Task task = 1;
+    bool response = 2;
+}
+
+message CreateCardRequest {
+    Card card=1;
+}
+
+message SelectCardRequest {
+    Card card = 1;
+    User user = 2;
+}
+
+message CardResponse {
+    Card card = 1;
+    bool response = 2;
+}
+
+message CreateUserAccountRequest {
+    User user = 1;
+}
+
+message GetUserDetailsRequest {
+    int32 user_id = 1;
+}
+
+message UpdateUserDetailsRequest {
+    int32 user_id = 1;
+    User user = 2;
+}
+
+message DeleteUserDetailsRequest {
+    int32 user_id = 1;
+}
+
+message UserResponse {
+    User user = 1;
+    bool response = 2;
+}
+
+message CreateSessionRequest {
+    Session session = 1;
+    User user = 2;
+}
+
+message UpdateSessionRequest {
+    Session session = 1;
+}
+
+message GetSessionRequest {
+    Session session = 1;
+}
+
+message DeleteSessionRequest {
+     Session session = 1;
+}
+
+message SessionResponse {
+    Session session = 1;
+}
+
+message VoteRequest {
+    Vote vote = 1;
+}
+
+message VoteResponse {
+    Vote vote = 1;
+    bool response = 2;
+}
+
+// Service Definitions
+service TaskService {
+    rpc CreateTask(CreateTaskRequest) returns (TaskResponse);
+    rpc ReadTask(ReadTaskRequest) returns (TaskResponse);
+    rpc UpdateTask(UpdateTaskRequest) returns (TaskResponse);
+    rpc DeleteTask(DeleteTaskRequest) returns (TaskResponse);
+}
+
+service CardService {
+    rpc CreateCard(CreateCardRequest) returns (CardResponse);
+    rpc SelectCard(SelectCardRequest) returns (CardResponse);
+}
+
+service UserService {
+    rpc CreateUserAccount(CreateUserAccountRequest) returns (UserResponse);
+    rpc GetUserDetails(GetUserDetailsRequest) returns (UserResponse);
+    rpc UpdateUserDetails(UpdateUserDetailsRequest) returns (UserResponse);
+    rpc DeleteUserDetails(DeleteUserDetailsRequest) returns (UserResponse);
+}
+
+service SessionService {
+    rpc CreateSession(CreateSessionRequest) returns (SessionResponse);
+    rpc UpdateSession(UpdateSessionRequest) returns (SessionResponse);
+    rpc GetSession(GetSessionRequest) returns (SessionResponse);
+    rpc DeleteSession(DeleteSessionRequest) returns (UserResponse);
+}
+
+service VoteService {
+    rpc SubmitVote(VoteRequest) returns (VoteResponse);
 }

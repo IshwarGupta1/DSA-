@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33712.159
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scrumpoker", "scrumpoker.csproj", "{BEE96683-9070-452F-B705-B056F3C124B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScrumPoker", "ScrumPoker.csproj", "{FB9AEA4D-2FCA-4E50-97B6-029F8BBFEA0A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BEE96683-9070-452F-B705-B056F3C124B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BEE96683-9070-452F-B705-B056F3C124B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BEE96683-9070-452F-B705-B056F3C124B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BEE96683-9070-452F-B705-B056F3C124B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB9AEA4D-2FCA-4E50-97B6-029F8BBFEA0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB9AEA4D-2FCA-4E50-97B6-029F8BBFEA0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB9AEA4D-2FCA-4E50-97B6-029F8BBFEA0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB9AEA4D-2FCA-4E50-97B6-029F8BBFEA0A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BF587FEE-198D-4AF9-B4B2-2AF34DDC692E}
+		SolutionGuid = {BB42AA25-5064-4AD5-82BD-2382D6E127A9}
 	EndGlobalSection
 EndGlobal

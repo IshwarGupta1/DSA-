@@ -1,4 +1,4 @@
-namespace scrumpoker
+namespace ScrumPoker
 {
     public class WeatherForecast
     {

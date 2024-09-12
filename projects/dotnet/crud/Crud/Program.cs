@@ -1,25 +1,14 @@
-var builder = WebApplication.CreateBuilder(args);
+using Crud;
 
-// Add services to the container.
-
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+class Program
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    static void Main(string[] args)
+    {
+        AudioPlayer audioPlayer = new AudioPlayer();
+
+        audioPlayer.Play("mp3", "song.mp3");
+        audioPlayer.Play("mp4", "video.mp4");
+        audioPlayer.Play("vlc", "movie.vlc");
+        audioPlayer.Play("avi", "unknown.avi");
+    }
 }
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();

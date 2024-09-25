@@ -1,0 +1,24 @@
++-----------------+         +-----------------+
+|      Symbol     |         |      Player     |
++-----------------+         +-----------------+
+| + X             |<>-------| - name: string  |
+| + O             |         | - symbol: Symbol|
++-----------------+         +-----------------+
+                            | + Player()      |
+                            +-----------------+
+ 
+                                ^
+                                |
+                                |
+                                |
+                        +-----------------+
+                        |      Game       |
+                        +-----------------+
+                        | - _boardSize: int |
+                        | - _players: List<Player> |
+                        +-----------------+
+                        | + Game(int boardSize, List<Player> players) |
+                        | + void playGame()                          |
+                        | + void displayBoard(List<List<string>> board)|
+                        | + bool checkVictory(List<List<string>> board, string symbol) |
+                        +-----------------+

@@ -1,0 +1,15 @@
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\bin\Debug\net6.0\strategy.exe
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\bin\Debug\net6.0\strategy.deps.json
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\bin\Debug\net6.0\strategy.runtimeconfig.json
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\bin\Debug\net6.0\strategy.dll
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\bin\Debug\net6.0\strategy.pdb
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\obj\Debug\net6.0\strategy.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\obj\Debug\net6.0\strategy.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\obj\Debug\net6.0\strategy.AssemblyInfoInputs.cache
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\obj\Debug\net6.0\strategy.AssemblyInfo.cs
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\obj\Debug\net6.0\strategy.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\obj\Debug\net6.0\strategy.dll
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\obj\Debug\net6.0\refint\strategy.dll
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\obj\Debug\net6.0\strategy.pdb
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\obj\Debug\net6.0\strategy.genruntimeconfig.cache
+C:\Users\User\OneDrive\Documents\DSA-\projects\dotnet\crud\strategy\obj\Debug\net6.0\ref\strategy.dll

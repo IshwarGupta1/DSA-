@@ -1,0 +1,53 @@
+class Solution {
+public:
+int takeCharacters(string s, int k) {
+        int a = 0, b = 0, c = 0;
+        for(auto it: s){
+            if(it == 'a'){
+                a++;
+            }
+            else if(it == 'b'){
+              b++;
+            }
+            else{
+                c++;
+            }
+        }
+        if(a < k || b < k || c < k){
+            return -1;
+        }
+        int n = s.length();
+        a = a-k;
+        b = b-k;
+        c = c-k;
+        int i=0,j=0;
+        int mx = 0;
+        int windowCountA=0,windowCountB=0,windowCountC=0;
+        while(j<n){
+            if(s[j] == 'a'){
+                windowCountA++;
+            }
+            else if(s[j] == 'b'){
+              windowCountB++;
+            }
+            else{
+                windowCountC++;
+            }
+            while(a < windowCountA || b < windowCountB || c < windowCountC){
+                if(s[i] == 'a'){
+                    windowCountA--;
+                }
+                else if(s[i] == 'b'){
+                  windowCountB--;
+                }
+                else{
+                    windowCountC--;
+                }
+                i++;
+            }
+            mx = max(mx,j-i+1);
+            j++;
+        }
+        return n - mx;
+    }
+};

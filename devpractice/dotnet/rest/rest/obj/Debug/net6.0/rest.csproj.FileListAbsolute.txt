@@ -1,0 +1,7 @@
+C:\Users\User\OneDrive\Documents\DSA-\devpractice\dotnet\rest\rest\obj\Debug\net6.0\rest.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive\Documents\DSA-\devpractice\dotnet\rest\rest\obj\Debug\net6.0\rest.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\OneDrive\Documents\DSA-\devpractice\dotnet\rest\rest\obj\Debug\net6.0\rest.AssemblyInfoInputs.cache
+C:\Users\User\OneDrive\Documents\DSA-\devpractice\dotnet\rest\rest\obj\Debug\net6.0\rest.AssemblyInfo.cs
+C:\Users\User\OneDrive\Documents\DSA-\devpractice\dotnet\rest\rest\obj\Debug\net6.0\rest.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive\Documents\DSA-\devpractice\dotnet\rest\rest\obj\Debug\net6.0\rest.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\User\OneDrive\Documents\DSA-\devpractice\dotnet\rest\rest\obj\Debug\net6.0\rest.MvcApplicationPartsAssemblyInfo.cache

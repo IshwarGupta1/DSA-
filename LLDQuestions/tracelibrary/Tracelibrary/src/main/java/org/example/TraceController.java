@@ -18,9 +18,6 @@ public class TraceController {
         this.programList.add(new Program(2));
     }
 
-    /**
-     * Simulates the HTTP GET endpoint to retrieve traces by Program ID.
-     */
     public void handleGetTraces(int programId) {
         try {
             traceService.getTraces(programList, programId);
@@ -37,17 +34,11 @@ public class TraceController {
         System.out.println("Trace added successfully.");
     }
 
-    /**
-     * Simulates HTTP DELETE endpoint to remove a trace.
-     */
     public void handleRemoveTrace(int traceId) {
         traceService.removeTrace(programList, traceId);
         System.out.println("Trace removed successfully.");
     }
 
-    /**
-     * Simulates testing and running controller actions.
-     */
     public void simulateControllerActions() {
         System.out.println("\n** Simulating Controller Actions **\n");
 

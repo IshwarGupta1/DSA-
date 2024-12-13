@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9d68c241-00d9-4813-a5e9-a7db62ad6654" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/splitwise.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/splitwise.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/src/EqualExpense.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/src/ExactExpense.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/src/Expense.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/src/ExpenseManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/src/Group.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/src/PercentageExpense.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/src/Share.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/src/SplitType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/splitwise/src/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tracelibrary/Tracelibrary/src/main/java/org/example/TraceController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tracelibrary/Tracelibrary/src/main/java/org/example/TraceController.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2q1mntuMGGNcvkS6poOw0u40e2i" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9d68c241-00d9-4813-a5e9-a7db62ad6654" name="Changes" comment="" />
+      <created>1733838628678</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1733838628678</updated>
+    </task>
+    <servers />
+  </component>
+</project>

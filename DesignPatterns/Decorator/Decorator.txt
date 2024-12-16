@@ -1,0 +1,17 @@
+A Decorator Pattern says that just "attach a flexible additional responsibilities to an object dynamically".
+
+In other words, The Decorator Pattern uses composition instead of inheritance to extend the functionality of an object at runtime.
+
+The Decorator Pattern is also known as Wrapper.
+
+
+
+First Create interface
+then concrete for interface
+then abstract decorator implementing interface
+then child of the abstract 
+
+in main
+call the concrete first
+then call decorator with concrete inside it
+then call decorator methods

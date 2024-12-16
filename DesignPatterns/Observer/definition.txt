@@ -1,0 +1,8 @@
+An Observer Pattern says that "just define a one-to-one dependency so that when one object changes state, all its dependents are notified and updated automatically".
+
+The observer pattern is also known as Dependents or Publish-Subscribe.
+
+
+Create observers extending from common interface
+then create observable with list of interface observers
+in main then perform methods of observable

@@ -1,0 +1,3 @@
+The class should have a private static instance of itself.
+Make the constructor private so no other class can instantiate it.
+Provide a public static method to access the single instance.

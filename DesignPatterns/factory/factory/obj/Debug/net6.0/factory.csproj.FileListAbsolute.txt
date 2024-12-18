@@ -1,0 +1,15 @@
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\bin\Debug\net6.0\factory.exe
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\bin\Debug\net6.0\factory.deps.json
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\bin\Debug\net6.0\factory.runtimeconfig.json
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\bin\Debug\net6.0\factory.dll
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\bin\Debug\net6.0\factory.pdb
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\obj\Debug\net6.0\factory.csproj.AssemblyReference.cache
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\obj\Debug\net6.0\factory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\obj\Debug\net6.0\factory.AssemblyInfoInputs.cache
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\obj\Debug\net6.0\factory.AssemblyInfo.cs
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\obj\Debug\net6.0\factory.csproj.CoreCompileInputs.cache
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\obj\Debug\net6.0\factory.dll
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\obj\Debug\net6.0\refint\factory.dll
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\obj\Debug\net6.0\factory.pdb
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\obj\Debug\net6.0\factory.genruntimeconfig.cache
+C:\Users\User\OneDrive\Documents\DSA-\DesignPatterns\factory\factory\obj\Debug\net6.0\ref\factory.dll

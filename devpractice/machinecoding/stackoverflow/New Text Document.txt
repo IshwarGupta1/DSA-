@@ -1,0 +1,2 @@
+instead of sentence inheritance we could have use factory
+we could use post and search methods using strategy

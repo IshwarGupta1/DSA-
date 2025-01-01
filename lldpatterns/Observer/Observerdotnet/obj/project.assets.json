@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\Patterns\\Observer\\dotnet\\Observer\\Observer.csproj",
+      "projectUniqueName": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\lldpatterns\\Observer\\Observerdotnet\\Observer.csproj",
       "projectName": "Observer",
-      "projectPath": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\Patterns\\Observer\\dotnet\\Observer\\Observer.csproj",
+      "projectPath": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\lldpatterns\\Observer\\Observerdotnet\\Observer.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\Patterns\\Observer\\dotnet\\Observer\\obj\\",
+      "outputPath": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\lldpatterns\\Observer\\Observerdotnet\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

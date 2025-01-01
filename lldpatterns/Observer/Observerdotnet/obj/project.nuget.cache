@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "aEO+WfLz6ciNRC0LBl3+k4wuUWZD8uczXWKGE/BOWPSc6BUen6kpb2uMw+GMKRG01Y4iLe/qXyZ+b/2S0qx9IA==",
+  "dgSpecHash": "CnneLvjZf27V7Zb6BkRRfaangK6DOU9SpOHt/hfZkK3eYivKYUZcUHg5BsUpFDjETUXAjYixNGL9zPTI+w7mGg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\Patterns\\Observer\\dotnet\\Observer\\Observer.csproj",
+  "projectFilePath": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\lldpatterns\\Observer\\Observerdotnet\\Observer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -1,6 +1,5 @@
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\appsettings.json
-C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\ScrumPoker.staticwebassets.runtime.json
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\ScrumPoker.exe
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\ScrumPoker.deps.json
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\ScrumPoker.runtimeconfig.json
@@ -26,6 +25,7 @@ C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Deb
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\Microsoft.OpenApi.dll
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\MySqlConnector.dll
+C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\NSubstitute.dll
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\nunit.framework.dll
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\nunit.framework.legacy.dll
@@ -36,6 +36,7 @@ C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Deb
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\System.Drawing.Common.dll
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\System.Net.WebSockets.WebSocketProtocol.dll
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\System.Runtime.Caching.dll
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\System.Security.Permissions.dll
@@ -73,5 +74,3 @@ C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\obj\Deb
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\obj\Debug\net6.0\ScrumPoker.pdb
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\obj\Debug\net6.0\ScrumPoker.genruntimeconfig.cache
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\obj\Debug\net6.0\ref\ScrumPoker.dll
-C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\Newtonsoft.Json.dll
-C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\System.Net.WebSockets.WebSocketProtocol.dll

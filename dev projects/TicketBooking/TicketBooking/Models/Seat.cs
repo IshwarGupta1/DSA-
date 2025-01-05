@@ -8,5 +8,7 @@
         public SeatType seatType { get; set; }
         public int EventId { get; set; }
         public Event Event { get; set; }
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
     }
 }

@@ -1,4 +1,6 @@
-﻿namespace TicketBooking.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TicketBooking.Models
 {
     public class Booking
     {
@@ -7,5 +9,7 @@
         public int SeatId { get; set; }
         public int EventId { get; set; }
         public DateTime BookingTime { get; set; }
+        [Timestamp]
+        public byte[] RowVersion { get; set; }
     }
 }

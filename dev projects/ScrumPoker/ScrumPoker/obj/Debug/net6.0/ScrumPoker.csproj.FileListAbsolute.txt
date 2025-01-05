@@ -73,3 +73,5 @@ C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\obj\Deb
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\obj\Debug\net6.0\ScrumPoker.pdb
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\obj\Debug\net6.0\ScrumPoker.genruntimeconfig.cache
 C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\obj\Debug\net6.0\ref\ScrumPoker.dll
+C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\bin\Debug\net6.0\System.Net.WebSockets.WebSocketProtocol.dll

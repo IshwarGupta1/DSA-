@@ -1,4 +1,5 @@
 ﻿using ScrumPoker.Models;
+using Microsoft.AspNetCore.SignalR;
 using System.Security.Claims;
 
 namespace ScrumPoker.Service
@@ -7,10 +8,13 @@ namespace ScrumPoker.Service
     {
         private readonly DataContext _dataContext;
         private readonly IHttpContextAccessor _contextAccessor;
-        public ScrumMasterService(DataContext dataContext, IHttpContextAccessor contextAccessor)
+        private readonly IHubContext<GameHub> _hubContext;
+
+        public ScrumMasterService(DataContext dataContext, IHttpContextAccessor contextAccessor, IHubContext<GameHub> hubContext)
         {
             _dataContext = dataContext;
             _contextAccessor = contextAccessor;
+            _hubContext = hubContext;
         }
 
         public async Task<Game> createGameAsync()
@@ -37,14 +41,17 @@ namespace ScrumPoker.Service
             {
                 throw new UnauthorizedAccessException("only scrum master can reveal votes");
             }
-            
-            var game = _dataContext.Game.FirstOrDefault(g=>g.gameCode == gameCode);
-            if(game == null)
+
+            var game = _dataContext.Game.FirstOrDefault(g => g.gameCode == gameCode);
+            if (game == null)
             {
                 throw new Exception("game does not exist");
             }
             game.isVotingOpen = false;
             await _dataContext.SaveChangesAsync();
+
+            await _hubContext.Clients.Group(gameCode).SendAsync("VotesRevealed", gameCode, game.votes);
+
             return game.votes;
         }
     }

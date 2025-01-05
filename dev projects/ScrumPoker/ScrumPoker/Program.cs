@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using ScrumPoker;
 using ScrumPoker.Service;
+using Microsoft.AspNetCore.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -53,6 +54,8 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IScrumMasterService, ScrumMasterService>();
 builder.Services.AddScoped<IDevQAService, DevQAService>();
 
+// Add SignalR service
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 app.UseCors("AllowAllOrigins");
@@ -72,8 +75,10 @@ app.UseHttpsRedirection();
 
 app.UseRouting();
 app.UseAuthentication();
-
 app.UseAuthorization();
+
+// Map SignalR Hub
+app.MapHub<GameHub>("/gameHub");
 
 app.MapControllers();
 

@@ -16,6 +16,7 @@ namespace ScrumPoker.Tests
         private DevQAService _service;
         private DataContext _mockDataContext;
         private IHttpContextAccessor _mockContextAccessor;
+        private GameHub _gameHub;
 
         [SetUp]
         public void SetUp()
@@ -23,9 +24,10 @@ namespace ScrumPoker.Tests
             // Create mocks for dependencies
             _mockDataContext = Substitute.For<DataContext>();
             _mockContextAccessor = Substitute.For<IHttpContextAccessor>();
+            _gameHub = Substitute.For<GameHub>();
 
             // Initialize the service with the mocked dependencies
-            _service = new DevQAService(_mockDataContext, _mockContextAccessor);
+            _service = new DevQAService(_mockDataContext, _mockContextAccessor, (Microsoft.AspNetCore.SignalR.IHubContext<GameHub>)_gameHub);
         }
 
         [Test]

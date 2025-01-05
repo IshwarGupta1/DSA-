@@ -1,71 +1,11 @@
 {
   "Version": 1,
-  "Hash": "r/yTjxrKp37UrSaRWCkCkMD+C9ChJNlIhuR9z+RMT9w=",
+  "Hash": "Nl17BP1MObv6XwMPFnDDO6rJsk7+dYuTX0VsvPL/yrY=",
   "Source": "ScrumPoker",
   "BasePath": "_content/ScrumPoker",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [
-    {
-      "Name": "ScrumPoker\\wwwroot",
-      "Source": "ScrumPoker",
-      "ContentRoot": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\dev projects\\ScrumPoker\\ScrumPoker\\wwwroot\\",
-      "BasePath": "_content/ScrumPoker",
-      "Pattern": "**"
-    }
-  ],
-  "Assets": [
-    {
-      "Identity": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\dev projects\\ScrumPoker\\ScrumPoker\\wwwroot\\css\\styles.css",
-      "SourceId": "ScrumPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\dev projects\\ScrumPoker\\ScrumPoker\\wwwroot\\",
-      "BasePath": "_content/ScrumPoker",
-      "RelativePath": "css/styles.css",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\css\\styles.css"
-    },
-    {
-      "Identity": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\dev projects\\ScrumPoker\\ScrumPoker\\wwwroot\\index.html",
-      "SourceId": "ScrumPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\dev projects\\ScrumPoker\\ScrumPoker\\wwwroot\\",
-      "BasePath": "_content/ScrumPoker",
-      "RelativePath": "index.html",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\index.html"
-    },
-    {
-      "Identity": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\dev projects\\ScrumPoker\\ScrumPoker\\wwwroot\\js\\script.js",
-      "SourceId": "ScrumPoker",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\dev projects\\ScrumPoker\\ScrumPoker\\wwwroot\\",
-      "BasePath": "_content/ScrumPoker",
-      "RelativePath": "js/script.js",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\js\\script.js"
-    }
-  ]
+  "DiscoveryPatterns": [],
+  "Assets": []
 }

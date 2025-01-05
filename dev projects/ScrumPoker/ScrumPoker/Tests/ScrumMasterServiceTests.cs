@@ -14,13 +14,15 @@ public class ScrumMasterServiceTests
     private ScrumMasterService _service;
     private DataContext _mockDataContext;
     private IHttpContextAccessor _mockHttpContextAccessor;
+    private GameHub _gameHub;
 
     [SetUp]
     public void Setup()
     {
         _mockDataContext = Substitute.For<DataContext>();
         _mockHttpContextAccessor = Substitute.For<IHttpContextAccessor>();
-        _service = new ScrumMasterService(_mockDataContext, _mockHttpContextAccessor);
+        _gameHub = Substitute.For<GameHub>();
+        _service = new ScrumMasterService(_mockDataContext, _mockHttpContextAccessor, (Microsoft.AspNetCore.SignalR.IHubContext<GameHub>)_gameHub);
     }
 
     [Test]

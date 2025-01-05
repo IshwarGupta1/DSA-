@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ScrumPoker.Models;
+using Microsoft.AspNetCore.SignalR;
 using System.Security.Claims;
 
 namespace ScrumPoker.Service
@@ -8,12 +9,16 @@ namespace ScrumPoker.Service
     {
         private readonly DataContext _dataContext;
         private readonly IHttpContextAccessor _contextAccessor;
-        private readonly List<int> points = new List<int> { 1, 2, 3 , 5, 8, 13, 21};
-        public DevQAService(DataContext dataContext, IHttpContextAccessor contextAccessor)
+        private readonly IHubContext<GameHub> _hubContext;
+        private readonly List<int> points = new List<int> { 1, 2, 3, 5, 8, 13, 21 };
+
+        public DevQAService(DataContext dataContext, IHttpContextAccessor contextAccessor, IHubContext<GameHub> hubContext)
         {
             _dataContext = dataContext;
             _contextAccessor = contextAccessor;
+            _hubContext = hubContext;
         }
+
         public async Task<Vote> CastVoteAsync(string gameCode, Vote vote, int userId)
         {
             var game = await _dataContext.Game.FirstOrDefaultAsync(g => g.gameCode == gameCode);
@@ -26,7 +31,7 @@ namespace ScrumPoker.Service
             {
                 throw new InvalidOperationException("points given must be a Fibonacci number.");
             }
-            
+
             var voter = await _dataContext.Users.FirstOrDefaultAsync(user => user.userId == userId);
             var existingVote = game.votes.FirstOrDefault(v => v.playerId == userId);
             if (existingVote != null)
@@ -41,7 +46,16 @@ namespace ScrumPoker.Service
                 game.votes.Add(vote);
             }
 
-            await _dataContext.SaveChangesAsync();
+            try
+            {
+                await _dataContext.SaveChangesAsync();
+                await _hubContext.Clients.Group(gameCode).SendAsync("VoteCast", gameCode, vote);
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                throw new InvalidOperationException("A concurrency conflict occurred. Please try again.");
+            }
+
             return vote;
         }
 
@@ -108,6 +122,8 @@ namespace ScrumPoker.Service
             game.votes.Add(vote);
             await _dataContext.SaveChangesAsync();
 
+            await _hubContext.Clients.Group(gameCode).SendAsync("PlayerJoined", gameCode, vote);
+
             return game;
         }
 
@@ -125,6 +141,5 @@ namespace ScrumPoker.Service
                     throw new Exception("invalid role");
             }
         }
-
     }
 }

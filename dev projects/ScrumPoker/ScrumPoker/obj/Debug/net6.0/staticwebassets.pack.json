@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\dev projects\\ScrumPoker\\ScrumPoker\\wwwroot\\css\\styles.css",
+      "PackagePath": "staticwebassets\\css\\styles.css"
+    },
+    {
+      "Id": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\dev projects\\ScrumPoker\\ScrumPoker\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "C:\\Users\\User\\OneDrive\\Documents\\DSA-\\dev projects\\ScrumPoker\\ScrumPoker\\wwwroot\\js\\script.js",
+      "PackagePath": "staticwebassets\\js\\script.js"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.ScrumPoker.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.ScrumPoker.props",
+      "PackagePath": "build\\ScrumPoker.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.ScrumPoker.props",
+      "PackagePath": "buildMultiTargeting\\ScrumPoker.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.ScrumPoker.props",
+      "PackagePath": "buildTransitive\\ScrumPoker.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

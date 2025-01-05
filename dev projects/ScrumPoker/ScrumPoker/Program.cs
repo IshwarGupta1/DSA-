@@ -8,6 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", builder =>
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
+});
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -47,6 +55,11 @@ builder.Services.AddScoped<IDevQAService, DevQAService>();
 
 
 var app = builder.Build();
+app.UseCors("AllowAllOrigins");
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
+app.MapGet("/", () => "Welcome to my app!");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -57,9 +70,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
-
+app.UseRouting();
 app.UseAuthentication();
+
+app.UseAuthorization();
 
 app.MapControllers();
 

@@ -45,26 +45,43 @@ namespace ScrumPoker.Service
             return vote;
         }
 
-        public async Task<int> GetDevVoteAsync(string gameCode)
+        public async Task<double> GetDevVoteAsync(string gameCode)
         {
             var game = await _dataContext.Game.FirstOrDefaultAsync(g => g.gameCode == gameCode);
             if (game == null || !game.isVotingOpen)
             {
                 throw new InvalidOperationException("Game not found or voting is closed.");
             }
-            var devPoints = game.votes.Where(g => g.role == Role.Dev).Sum(v => v.storyPoints);
-            return devPoints;
+            var devPoints = game.votes.Where(g => g.role == Role.Dev).ToList();
+            if (devPoints.Count == 0)
+            {
+                throw new InvalidOperationException("No dev votes found.");
+            }
+            var averagePoints = devPoints.Average(v => v.storyPoints);
+
+            return averagePoints;
         }
 
-        public async Task<int> GetQAVoteAsync(string gameCode)
+        public async Task<double> GetQAVoteAsync(string gameCode)
         {
             var game = await _dataContext.Game.FirstOrDefaultAsync(g => g.gameCode == gameCode);
             if (game == null || !game.isVotingOpen)
             {
                 throw new InvalidOperationException("Game not found or voting is closed.");
             }
-            var qaPoints = game.votes.Where(g => g.role == Role.QA).Sum(v => v.storyPoints);
-            return qaPoints;
+
+            // Get the QA votes for the game
+            var qaVotes = game.votes.Where(g => g.role == Role.QA).ToList();
+
+            if (qaVotes.Count == 0)
+            {
+                throw new InvalidOperationException("No QA votes found.");
+            }
+
+            // Calculate the average of the QA votes
+            var averagePoints = qaVotes.Average(v => v.storyPoints);
+
+            return averagePoints;
         }
 
         public async Task<Game> JoinGameAsync(string gameCode, int userId)

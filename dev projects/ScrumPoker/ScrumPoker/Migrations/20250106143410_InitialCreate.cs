@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
@@ -20,7 +21,9 @@ namespace ScrumPoker.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     gameCode = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    isVotingOpen = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                    isVotingOpen = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    RowVersion = table.Column<DateTime>(type: "timestamp(6)", rowVersion: true, nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.ComputedColumn)
                 },
                 constraints: table =>
                 {
@@ -55,6 +58,8 @@ namespace ScrumPoker.Migrations
                     playerId = table.Column<int>(type: "int", nullable: false),
                     storyPoints = table.Column<int>(type: "int", nullable: false),
                     role = table.Column<int>(type: "int", nullable: false),
+                    RowVersion = table.Column<DateTime>(type: "timestamp(6)", rowVersion: true, nullable: false)
+                        .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.ComputedColumn),
                     GameId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>

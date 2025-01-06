@@ -25,6 +25,11 @@ namespace ScrumPoker.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<DateTime>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("timestamp(6)");
+
                     b.Property<string>("gameCode")
                         .IsRequired()
                         .HasColumnType("longtext");
@@ -67,6 +72,11 @@ namespace ScrumPoker.Migrations
 
                     b.Property<int?>("GameId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("timestamp(6)");
 
                     b.Property<int>("playerId")
                         .HasColumnType("int");

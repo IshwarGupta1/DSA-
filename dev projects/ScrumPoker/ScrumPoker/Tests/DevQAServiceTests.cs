@@ -1,33 +1,31 @@
 ﻿using NUnit.Framework;
 using NSubstitute;
-using Microsoft.EntityFrameworkCore;
-using ScrumPoker.Models;
-using ScrumPoker.Service;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
+using ScrumPoker.Service;
+using ScrumPoker.Models;
+using System.Security.Claims;
+using ScrumPoker.Service;
+using Microsoft.AspNetCore.SignalR;
 
 namespace ScrumPoker.Tests
 {
+    [TestFixture]
     public class DevQAServiceTests
     {
-        private DevQAService _service;
+        private IDevQAService _service;
         private DataContext _mockDataContext;
         private IHttpContextAccessor _mockContextAccessor;
-        private GameHub _gameHub;
+        private IHubContext<GameHub> _mockHubContext;
 
         [SetUp]
-        public void SetUp()
+        public void Setup()
         {
-            // Create mocks for dependencies
+            // Setup your mocks here
             _mockDataContext = Substitute.For<DataContext>();
             _mockContextAccessor = Substitute.For<IHttpContextAccessor>();
-            _gameHub = Substitute.For<GameHub>();
-
-            // Initialize the service with the mocked dependencies
-            _service = new DevQAService(_mockDataContext, _mockContextAccessor, (Microsoft.AspNetCore.SignalR.IHubContext<GameHub>)_gameHub);
+            _service = new DevQAService(_mockDataContext, _mockContextAccessor, _mockHubContext);
         }
 
         [Test]
@@ -42,7 +40,7 @@ namespace ScrumPoker.Tests
 
             // Act & Assert
             var ex = Assert.ThrowsAsync<InvalidOperationException>(() => _service.CastVoteAsync(gameCode, vote, userId));
-            Assert.Equals("Game not found or voting is closed.", ex.Message);
+            Assert.That(ex.Message, Is.EqualTo("Game not found or voting is closed."));
         }
 
         [Test]
@@ -58,7 +56,7 @@ namespace ScrumPoker.Tests
 
             // Act & Assert
             var ex = Assert.ThrowsAsync<InvalidOperationException>(() => _service.CastVoteAsync(gameCode, vote, userId));
-            Assert.Equals("points given must be a Fibonacci number.", ex.Message);
+            Assert.That(ex.Message, Is.EqualTo("points given must be a Fibonacci number."));
         }
 
         [Test]
@@ -80,8 +78,8 @@ namespace ScrumPoker.Tests
             var result = await _service.CastVoteAsync(gameCode, vote, userId);
 
             // Assert
-            Assert.Equals(userId, result.playerId);
-            Assert.Equals(Role.Dev, result.role);
+            Assert.That(result.playerId, Is.EqualTo(userId));
+            Assert.That(result.role, Is.EqualTo(Role.Dev));
         }
 
         [Test]
@@ -94,7 +92,7 @@ namespace ScrumPoker.Tests
 
             // Act & Assert
             var ex = Assert.ThrowsAsync<InvalidOperationException>(() => _service.GetDevVoteAsync(gameCode));
-            Assert.Equals("No dev votes found.", ex.Message);
+            Assert.That(ex.Message, Is.EqualTo("No dev votes found."));
         }
 
         [Test]
@@ -118,7 +116,7 @@ namespace ScrumPoker.Tests
             var result = await _service.GetDevVoteAsync(gameCode);
 
             // Assert
-            Assert.Equals(6.5, result);
+            Assert.That(result, Is.EqualTo(6.5));
         }
 
         [Test]
@@ -132,7 +130,7 @@ namespace ScrumPoker.Tests
 
             // Act & Assert
             var ex = Assert.ThrowsAsync<Exception>(() => _service.JoinGameAsync(gameCode, userId));
-            Assert.Equals("Game not found.", ex.Message);
+            Assert.That(ex.Message, Is.EqualTo("Game not found."));
         }
 
         [Test]
@@ -147,7 +145,7 @@ namespace ScrumPoker.Tests
 
             // Act & Assert
             var ex = Assert.ThrowsAsync<InvalidOperationException>(() => _service.JoinGameAsync(gameCode, userId));
-            Assert.Equals("User has already joined this game.", ex.Message);
+            Assert.That(ex.Message, Is.EqualTo("User has already joined this game."));
         }
 
         [Test]
@@ -168,8 +166,8 @@ namespace ScrumPoker.Tests
             var addedVote = result.votes.FirstOrDefault(v => v.playerId == userId);
 
             // Assert
-            Assert.Equals(Role.Dev, addedVote!.role);
-            Assert.Equals(userId, addedVote.playerId);
+            Assert.That(addedVote.role, Is.EqualTo(Role.Dev));
+            Assert.That(addedVote.playerId, Is.EqualTo(userId));
         }
     }
 }

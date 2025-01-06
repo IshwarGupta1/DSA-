@@ -1,4 +1,6 @@
-﻿namespace TicketBooking.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace TicketBooking.Models
 {
     public class Seat
     {

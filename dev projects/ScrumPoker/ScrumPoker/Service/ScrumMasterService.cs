@@ -1,6 +1,7 @@
 ﻿using ScrumPoker.Models;
 using Microsoft.AspNetCore.SignalR;
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
 
 namespace ScrumPoker.Service
 {
@@ -42,7 +43,7 @@ namespace ScrumPoker.Service
                 throw new UnauthorizedAccessException("only scrum master can reveal votes");
             }
 
-            var game = _dataContext.Game.FirstOrDefault(g => g.gameCode == gameCode);
+            var game = _dataContext.Game.Include(g => g.votes).FirstOrDefault(g => g.gameCode == gameCode);
             if (game == null)
             {
                 throw new Exception("game does not exist");

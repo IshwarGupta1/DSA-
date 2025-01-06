@@ -3,12 +3,21 @@ using Microsoft.EntityFrameworkCore;
 using ScrumPoker;
 using ScrumPoker.Service;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.Extensions.DependencyInjection;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
+
+// Configure Identity Options to set the UserIdClaimType
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    // Set the claim type for the user's ID to NameIdentifier
+    options.ClaimsIdentity.UserIdClaimType = ClaimTypes.NameIdentifier;
+});
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -34,8 +43,9 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             ValidateLifetime = true,
             ValidIssuer = builder.Configuration["Jwt:Issuer"],
             ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+            IssuerSigningKey = new Microsoft.IdentityModel.Tokens.SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
         };
+        options.MapInboundClaims = true;
     });
 
 builder.Services.AddSingleton<AuthService>(new AuthService(
@@ -43,6 +53,7 @@ builder.Services.AddSingleton<AuthService>(new AuthService(
     builder.Configuration["Jwt:Issuer"],
     builder.Configuration["Jwt:Audience"]
 ));
+
 builder.Services.AddHttpContextAccessor();
 builder.Services.AddScoped<IScrumMasterService, ScrumMasterService>();
 builder.Services.AddScoped<IDevQAService, DevQAService>();

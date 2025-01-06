@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ScrumPoker.Models;
 using ScrumPoker.Service;
 using System.Net;
@@ -43,6 +44,7 @@ namespace ScrumPoker.Controllers
         /// Casts a vote for a game.
         /// Only Dev or QA users can cast votes.
         /// </summary>
+        [Authorize]
         [HttpPost("{gameCode}/vote")]
         [ProducesResponseType(typeof(Vote), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]

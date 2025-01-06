@@ -48,6 +48,7 @@ namespace ScrumPoker.Service
 
             try
             {
+                await _dataContext.AddAsync(vote);
                 await _dataContext.SaveChangesAsync();
                 await _hubContext.Clients.Group(gameCode).SendAsync("VoteCast", gameCode, vote);
             }
@@ -61,7 +62,7 @@ namespace ScrumPoker.Service
 
         public async Task<double> GetDevVoteAsync(string gameCode)
         {
-            var game = await _dataContext.Game.FirstOrDefaultAsync(g => g.gameCode == gameCode);
+            var game = await _dataContext.Game.Include(g => g.votes).FirstOrDefaultAsync(g => g.gameCode == gameCode);
             if (game == null || !game.isVotingOpen)
             {
                 throw new InvalidOperationException("Game not found or voting is closed.");
@@ -78,7 +79,7 @@ namespace ScrumPoker.Service
 
         public async Task<double> GetQAVoteAsync(string gameCode)
         {
-            var game = await _dataContext.Game.FirstOrDefaultAsync(g => g.gameCode == gameCode);
+            var game = await _dataContext.Game.Include(g => g.votes).FirstOrDefaultAsync(g => g.gameCode == gameCode);
             if (game == null || !game.isVotingOpen)
             {
                 throw new InvalidOperationException("Game not found or voting is closed.");

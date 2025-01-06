@@ -59,7 +59,8 @@ public class AuthController : ControllerBase
         }
 
         // Generate JWT token
-        var token = _authService.GenerateJwtToken(user.userName, user.userRole.ToString());
-        return Ok(new { token });
+        var token = _authService.GenerateJwtToken(user.userId.ToString(), user.userName, user.userRole.ToString());
+        return Ok(new { token, user = new { user.userName, user.userRole } });
+
     }
 }

@@ -30,7 +30,7 @@ namespace ScrumPoker.Controllers
             try
             {
                 var game = await _scrumMasterService.createGameAsync();
-                return CreatedAtAction(nameof(CreateGameAsync), new { gameCode = game.gameCode }, game);
+                return Ok(new { gameCode = game.gameCode });
             }
             catch (UnauthorizedAccessException ex)
             {

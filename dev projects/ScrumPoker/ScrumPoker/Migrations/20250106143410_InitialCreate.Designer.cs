@@ -11,7 +11,7 @@ using ScrumPoker;
 namespace ScrumPoker.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20250104132414_InitialCreate")]
+    [Migration("20250106143410_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -26,6 +26,11 @@ namespace ScrumPoker.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("timestamp(6)");
 
                     b.Property<string>("gameCode")
                         .IsRequired()
@@ -69,6 +74,11 @@ namespace ScrumPoker.Migrations
 
                     b.Property<int?>("GameId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("RowVersion")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("timestamp(6)");
 
                     b.Property<int>("playerId")
                         .HasColumnType("int");

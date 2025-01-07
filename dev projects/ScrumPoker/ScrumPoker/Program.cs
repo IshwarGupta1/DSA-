@@ -25,11 +25,9 @@ builder.Services.AddSwaggerGen();
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<DataContext>(options =>
-    options.UseMySql(
-        builder.Configuration.GetConnectionString("DefaultConnection"),
-        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))
+    options.UseSqlServer(
+        builder.Configuration.GetConnectionString("DefaultConnection")
     ));
-
 // Add JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ScrumPoker;
 
@@ -16,8 +17,10 @@ namespace ScrumPoker.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.0")
-                .HasAnnotation("Relational:MaxIdentifierLength", 64);
+                .HasAnnotation("ProductVersion", "6.0.14")
+                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+
+            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
             modelBuilder.Entity("ScrumPoker.Models.Game", b =>
                 {
@@ -25,17 +28,20 @@ namespace ScrumPoker.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("RowVersion")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()
+                        .IsRequired()
                         .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("timestamp(6)");
+                        .HasColumnType("rowversion");
 
                     b.Property<string>("gameCode")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("isVotingOpen")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
@@ -48,13 +54,15 @@ namespace ScrumPoker.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("userId"), 1L, 1);
+
                     b.Property<string>("passwordHash")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("userName")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("userRole")
                         .HasColumnType("int");
@@ -70,13 +78,16 @@ namespace ScrumPoker.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
                     b.Property<int?>("GameId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("RowVersion")
+                    b.Property<byte[]>("RowVersion")
                         .IsConcurrencyToken()
+                        .IsRequired()
                         .ValueGeneratedOnAddOrUpdate()
-                        .HasColumnType("timestamp(6)");
+                        .HasColumnType("rowversion");
 
                     b.Property<int>("playerId")
                         .HasColumnType("int");

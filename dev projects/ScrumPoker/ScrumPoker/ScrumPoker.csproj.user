@@ -5,5 +5,6 @@
   </PropertyGroup>
   <PropertyGroup>
     <ActiveDebugProfile>ScrumPoker</ActiveDebugProfile>
+    <NameOfLastUsedPublishProfile>C:\Users\User\OneDrive\Documents\DSA-\dev projects\ScrumPoker\ScrumPoker\Properties\PublishProfiles\scrumpokerIshwar - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

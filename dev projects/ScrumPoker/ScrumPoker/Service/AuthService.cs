@@ -22,19 +22,19 @@ namespace ScrumPoker.Service
         {
             var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.UTF8.GetBytes(_jwtKey); // Use UTF-8 encoding for key
-
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(new[]
-                {
+               {
                     new Claim(ClaimTypes.NameIdentifier, userId), // Add the unique identifier
                     new Claim(ClaimTypes.Name, username),
                     new Claim(ClaimTypes.Role, role)
                 }),
-                Expires = DateTime.UtcNow.AddHours(1), // Token expiration time
-                Issuer = _issuer,  // Optional: Define your issuer
-                Audience = _audience,  // Optional: Define your audience
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                IssuedAt = DateTime.UtcNow,
+                Issuer = _issuer,
+                Audience = _audience,
+                Expires = DateTime.UtcNow.AddMinutes(30), // can change exprires time
+                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
             };
 
             var token = tokenHandler.CreateToken(tokenDescriptor);

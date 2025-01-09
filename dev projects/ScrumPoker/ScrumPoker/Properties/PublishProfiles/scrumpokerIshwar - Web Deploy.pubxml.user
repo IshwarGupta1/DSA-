@@ -6,8 +6,18 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project>
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+uWCSTn710GAixUmN9ND7AAAAAACAAAAAAAQZgAAAAEAACAAAABt3lHnUWW0OkDBNjhOpQTVhojj585S0l8odmCRg+3N7QAAAAAOgAAAAAIAACAAAADOCZWC4Hi9Wa4k4ggdTsTiQdisdaiHKYXe+2P1xCUOO4AAAAAK4uJ+1bfhyvPO7mLq/xNdo6OqyO/6vAXJXR7RPzlv680bKEa5ywGmEJOC9FL6uXcgseLnJE8IinoDmUKTbLPOwXarB2qIUZaQ23qU4fnduHILokpKkMylks2E0GigokpAyKALfGe6YOvo6GIdBluw+v1DdmEbvkzDFvQIbvCjm0AAAAClu0OdQ/jiL6JRaskARdNyGF2548HYI+r8OdlA2zsLfBeIocxU2LBBJzz4alw1GuxRA3nCy1GcE6nqYR3JggWd</EncryptedPassword>
-    <History>True|2025-01-07T18:56:37.5877149Z;</History>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+uWCSTn710GAixUmN9ND7AAAAAACAAAAAAAQZgAAAAEAACAAAAAWzuNVFHDiOca9zjQRmFXqblngg2cOLeGyktvmvfJwvgAAAAAOgAAAAAIAACAAAAA8PkzxhF4cPG/nQhuBFapTw3P1C7gtktjXjvlHn4dZ9IAAAAC7l1yKfPfSR9a8ToicWDqWt3z2cMMsLMo8KL91zGmmD90rK7LYIfS1i4DrJDPR8IgQrIBwkrT2NgsfcH0aLYtWqxr/U+DBGBfaKCx3GmwnjEBMhN/+nItHLLIBMVeoK+Z6vlddGBja1LkfqwcyLtjqBSbKMpmX0vHRoHtqy+qowkAAAAB8P6EQyG8dP5uxipM4zljUpAlrwEbR4wewxHN5rdg+KUu4G9uRLoLewUD6T+hp+GH2OQHt0kt6SwcZLLFkhB/G</EncryptedPassword>
+    <History>True|2025-01-09T19:02:14.7164874Z;</History>
     <LastFailureDetails />
   </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=tcp:scrumpokerserver.database.windows.net,1433%3bInitial Catalog=scrumpokerdb%3bPersist Security Info=False%3bUser ID=ishwar%3bPassword=Kolkata%40729474%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+  <ItemGroup>
+    <EFMigrations Include="ScrumPoker.DataContext">
+      <Value>Server=tcp:scrumpokerserver.database.windows.net,1433%3bInitial Catalog=scrumpokerdb%3bPersist Security Info=False%3bUser ID=ishwar%3bPassword=Kolkata%40729474%3bMultipleActiveResultSets=False%3bEncrypt=True%3bTrustServerCertificate=False%3bConnection Timeout=30%3b</Value>
+    </EFMigrations>
+  </ItemGroup>
 </Project>

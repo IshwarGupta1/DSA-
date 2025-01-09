@@ -28,7 +28,6 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")
     ));
-// Add JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>
     {
@@ -45,6 +44,8 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
         options.MapInboundClaims = true;
     });
+
+builder.Services.AddAuthorization();
 
 builder.Services.AddSingleton<AuthService>(new AuthService(
     builder.Configuration["Jwt:Key"],

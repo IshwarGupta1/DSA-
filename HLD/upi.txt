@@ -1,0 +1,62 @@
+UPI - 
+UPI transaction is based on IMPS.
+Functional Requirements
+Payment and transaction between two accounts
+NPCI acts as middleware
+
+Non Functional Requirements
+Availability
+Scalability
+Consistency
+
+Components
+Sender
+Receiver
+both as users
+
+UPI id
+
+NPCI
+
+NPCI switch
+
+HLD
+Sender with UPI --> NPCI(authorize with Pin to confirm and also confirms that if receiver upi id is valid or not) --> NPCI switch --> to sender bank(confirm transaction to initiate) --> npci switch --> receiver bank
+
+DB
+SQL DB in Banks with respective account details
+SQL DB in NPCI with account id and UPI id with PIN
+CREATE TABLE UPI{
+	accountId VARCHAR(20),
+	UPIId VARCHAR(20),
+	PIN VARCHAR(6)
+};
+
+API
+transaction 
+Get
+api/upi/v1/transaction/{upiId}/{amount}
+body{
+	"password" : <string_type>
+}
+
+response
+200 OK
+
+
+status 
+Get 
+api/upi/v1/balance/{upiId}
+body{
+	"password" : <string_type>
+}
+response
+body{
+	"amount" : <double type>
+}
+
+We can do availibilty using multiple upi switches 
+We can scale up db using sharding
+We can use consistency by maintaining ACID properties in DB
+
+we can use caching also in bank servers side

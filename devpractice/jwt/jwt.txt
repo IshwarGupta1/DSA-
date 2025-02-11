@@ -1,0 +1,43 @@
+jwt is a json object which can be used to transfer between parties for data sharing authorization and authentication.
+
+jwt contains three parts
+Header
+{
+	"type" : "jwt",
+	"algo" : "SHA256"
+}
+
+Payload
+three types, registered, public & private
+registered contains - issuer, exp time, issueAt, subject(by), Audience(for) 
+public and private are custom fields, we can add roles in public and user id things in private
+
+Signature
+used to verify token 
+it is encoded(header).encoded(payload).secretKey
+
+Authentication & Authorization using JWT
+user logs in giving credentials
+if validated, server generates a jwt token for user -- authentication
+
+user then stores token in cache, and for every protected api call it is inserted in authorization header
+we extract token from header and then get the secret key from signature and verify and then check claims for issuer audience exptime and then only we go ahead. -- authorization
+
+Spring Security
+mainly two annotations 
+@Preauthorize - Allows complex conditions with Spring Expression Language (SpEL). field level security
+Works at the method level (controller/service).
+@Secured - simpler does not works with SpEL, no field level security
+
+.Net Core
+JWT Handlers in .NET Core
+A JWT handler is responsible for: Parsing JWT tokens
+Validating claims
+Handling expiration & signature verification
+
+How JWT Authentication Works in .NET?
+1️ser logs in → Server generates JWT.
+2User sends JWT → In Authorization: Bearer <token> header.
+3JWT Middleware validates token → Decodes & extracts claims.
+4️JWT Handler processes authentication.
+5️User gets access if valid.

@@ -1,0 +1,14 @@
+CAP Theorem
+C = all nodes will have same values after any action
+A = all nodes will return non error response
+P = network failure still system works
+
+CP - example bank when we do transaction, at all places we will get same amount reflected.
+
+AP - like amazon big billion day sale, for every order it must be added in cart
+
+CA - not possible practically as n/w failures cannot be avoided
+
+consistency - eventual & strong
+eventual means not strict or immediate but eventually all nodes will be consistent
+strong is strict

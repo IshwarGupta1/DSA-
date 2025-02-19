@@ -1,5 +1,0 @@
-ticket booking and all could be done in separate class
-
-negative scenarios like ticket null or all should have been covered
-
-use of threads mostly producer consumer pattern 

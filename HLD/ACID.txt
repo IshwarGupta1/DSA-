@@ -1,0 +1,18 @@
+ACID transactions ensure that database operations are reliable. ACID stands for:
+
+Atomicity → "All or Nothing"
+
+A transaction is either fully completed or fully rolled back.
+Example: If you transfer ₹1000 from A to B, both debit and credit must happen. If one fails, everything is undone.
+Consistency → "Valid Data Only"
+
+The database must stay in a valid state before and after the transaction.
+Example: If a bank enforces that account balance cannot be negative, a transaction that violates this must be rejected.
+Isolation → "No Mixing of Transactions"
+
+Multiple transactions shouldn’t interfere with each other.
+Example: If two people try to buy the last train ticket at the same time, only one should succeed.
+Durability → "Saved Forever"
+
+Once a transaction is committed, it must persist even if the system crashes.
+Example: After a successful bank transfer, the amount should never revert, even if the server fails.

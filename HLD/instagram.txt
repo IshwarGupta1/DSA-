@@ -1,0 +1,29 @@
+user --> load balancer -->timeline feed service ---> DB --> S3 or Azure Blob for media
+								/
+								/
+								/
+								cache(from cache existing feed can fetched)
+								
+3 DBs
+One for User Details
+CREATE TABLE UserMeta
+{
+	UserId INT Primary Key,
+	UserName VARCHAR(50),
+	UserPassword VARCHAR(20)
+	UserLocation  VARCHAR(20)
+	
+}
+
+
+CREATE TABLE followers (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    follower_id INT,  -- User who is following
+    following_id INT, -- User who is being followed
+    followed_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (follower_id) REFERENCES users(id) ON DELETE CASCADE,
+    FOREIGN KEY (following_id) REFERENCES users(id) ON DELETE CASCADE,
+    UNIQUE (follower_id, following_id) -- Prevent duplicate follow relationships
+);
+
+

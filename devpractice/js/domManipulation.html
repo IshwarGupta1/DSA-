@@ -1,0 +1,126 @@
+
+<!---DOM Manipulation
+Selecting Elements
+Changing Text & Content
+Modifying Attributes
+Changing CSS Styles
+Handling Events
+Working with Input Fields
+Creating & Removing Elements
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation Practice</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 100px;
+            background-color: lightblue;
+            margin: 20px;
+            text-align: center;
+            line-height: 100px;
+        }
+        #image {
+            width: 200px;
+            height: 200px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM Manipulation Practice</h1>
+    
+    <div id="box">Click to Change Color</div>
+    
+    <button id="changeColorButton">Change Color</button>
+
+    <h2>Text Manipulation</h2>
+    <p id="text">This is a paragraph. Click below to change the text!</p>
+    <button id="changeTextButton">Change Text</button>
+
+    <h2>Attribute Manipulation</h2>
+    <img id="image" src="https://via.placeholder.com/200" alt="Placeholder Image">
+    <button id="changeImageButton">Change Image</button>
+
+    <h2>Input Field Manipulation</h2>
+    <input type="text" id="textInput" placeholder="Type something...">
+    <button id="showInputButton">Show Input</button>
+    <p id="inputResult"></p>
+
+    <h2>Adding New Elements</h2>
+    <button id="addParagraphButton">Add New Paragraph</button>
+    
+    <h2>Element Removal</h2>
+    <button id="removeElementButton">Remove Text Element</button>
+
+    <h2>Event Listener Example</h2>
+    <div id="boxClickDiv" style="width: 200px; height: 100px; background-color: lightgreen; text-align: center; line-height: 100px;">Click Me!</div>
+    <script>
+// select elements
+/*
+document.getElementById('id') → Selects an element by id.
+document.querySelector('selector') → Selects the first matching element.
+document.querySelectorAll('selector') → Selects all matching elements as a NodeList.
+document.getElementsByClassName('class') → Selects elements by class (returns an HTMLCollection).
+document.getElementsByTagName('tag') → Selects elements by tag name.
+*/
+const box = document.getElementById('box');
+const changeColorButton = document.getElementById('changeColorButton'); 
+const text = document.getElementById('text'); 
+const changeTextButton = document.getElementById('changeTextButton');
+const image = document.getElementById('image');
+const changeImageButton = document.getElementById('changeImageButton');
+const textInput = document.getElementById('textInput');
+const showInputButton = document.getElementById('showInputButton');
+const inputResult = document.getElementById('inputResult');
+const addParagraphButton = document.getElementById('addParagraphButton');
+const removeElementButton = document.getElementById('removeElementButton');
+const boxClickDiv = document.getElementById('boxClickDiv');
+
+//change text when button clicked 
+changeTextButton.addEventListener('click', () =>{
+    //to only change the content
+    text.textContent = "hello world";
+    // text.innerHTML = "<h2>hello world</h2>"; to insert html tags, this is little safe because of XSS attacks
+});
+
+// change attribute when button clicked
+changeImageButton.addEventListener('click', () =>{
+    image.setAttribute('src', 'https://via.placeholder.com/200/ff0000/ffffff?text=New+Image');
+    /*.setAttribute('attribute', 'value') → Changes an attribute value.
+        .getAttribute('attribute') → Gets the value of an attribute. */
+});
+
+// changing style property - element.style.property → Updates a specific CSS property.
+changeColorButton.addEventListener('click', () =>{
+    box.style.backgroundColor = box.style.backgroundColor == 'lightblue' ? 'red' : 'lightblue';
+});
+
+// handling events - Events allow us to trigger actions when users interact with elements (clicks, typing, hover, etc.).
+boxClickDiv.addEventListener('click', () => {
+    alert('Box clicked!');
+});
+
+//working with input fields
+showInputButton.addEventListener('click', () => {
+    inputResult.textContent = "you typed" + textInput.value;
+});
+
+// creating and removing elements
+addParagraphButton.addEventListener('click', ()=>{
+    const newPara = document.createElement('p');
+    newPara.textContent = 'new para';
+    document.appendChild(newPara); //adds
+});
+removeElementButton.addEventListener('click', () => {
+    text.remove(); // Removes the paragraph
+});
+
+    </script>
+</body>
+</html>

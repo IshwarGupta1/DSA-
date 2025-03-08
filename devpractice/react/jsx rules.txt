@@ -1,0 +1,98 @@
+🔥 JSX Rules with Examples  
+
+✅ 1. Must have a single parent element  
+❌ Incorrect  
+return (
+    <h1>Hello</h1>
+    <p>Welcome to React</p>
+);  
+
+✅ Correct (Use a `<div>` or `<>` fragment)  
+return (
+    <div>
+        <h1>Hello</h1>
+        <p>Welcome to React</p>
+    </div>
+);  
+
+OR  
+
+return (
+    <>
+        <h1>Hello</h1>
+        <p>Welcome to React</p>
+    </>
+);  
+
+------------------------------------------  
+✅ 2. Use `{}` for dynamic expressions  
+const name = "Ishwar";  
+const year = new Date().getFullYear();  
+
+return <h1>Hello, {name}! The year is {year}.</h1>;  
+
+❌ Incorrect (Statements like `if` are not allowed)  
+<h1>{if (true) "Hello"}</h1>  
+
+✅ Correct (Use a ternary operator instead)  
+<h1>{true ? "Hello" : "Goodbye"}</h1>  
+
+------------------------------------------  
+✅ 3. Self-closing tags required for elements without children  
+❌ Incorrect  
+<img src="logo.png">  
+
+✅ Correct  
+<img src="logo.png" />  
+
+------------------------------------------  
+✅ 4. Use `className` instead of `class`  
+❌ Incorrect  
+<h1 class="title">Welcome</h1>  
+
+✅ Correct  
+<h1 className="title">Welcome</h1>  
+
+------------------------------------------  
+✅ 5. Inline styles use objects  
+❌ Incorrect  
+<h1 style="color: red; font-size: 20px;">Styled Text</h1>  
+
+✅ Correct  
+<h1 style={{ color: "red", fontSize: "20px" }}>Styled Text</h1>  
+
+------------------------------------------  
+✅ 6. JSX attributes follow camelCase  
+❌ Incorrect  
+<button onclick="handleClick()">Click me</button>  
+
+✅ Correct  
+<button onClick={handleClick}>Click me</button>  
+
+------------------------------------------  
+✅ 7. Fragments (`<> </>`) can be used to avoid extra `div`s  
+return (
+    <>
+        <h1>Title</h1>
+        <p>Description</p>
+    </>
+);  
+
+------------------------------------------  
+✅ 8. Comments use `{/* comment */}` inside JSX  
+return (
+    <div>
+        {/* This is a comment in JSX */}
+        <h1>Hello, World!</h1>
+    </div>
+);  
+
+------------------------------------------  
+🔥 Challenge: Apply These Rules  
+Create a React component `Profile.js` that:  
+- Displays a **user's name** dynamically.  
+- Shows **age** using `{}`.  
+- Uses `className` for styling.  
+- Adds an inline `style` for font size.  
+- Includes a self-closing `<img />` tag.  
+Try it out! 🚀  

@@ -17,5 +17,6 @@ const perim = (length,breadth) => {
     return 2*(length+breadth);
 }
 console.log(perim(5,15));
+
 const radius = diam => diam/2;
 console.log(radius(6));

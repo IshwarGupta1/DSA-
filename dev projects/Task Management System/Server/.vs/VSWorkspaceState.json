@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\TaskManagerServer",
+    "\\TaskManagerServer\\DTOs"
   ],
+  "SelectedNode": "\\TaskManagerServer\\DTOs\\TaskEntityDTOValidator.cs",
   "PreviewInSolutionExplorer": false
 }

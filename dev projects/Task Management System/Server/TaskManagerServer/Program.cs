@@ -11,25 +11,36 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
-
-builder.Services.AddValidatorsFromAssemblyContaining<TaskEntityDTOValidator>();
-
-builder.Services.AddDbContext<TaskDataContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+// Add In-Memory Database for Testing
+//builder.Services.AddDbContext<TaskDataContext>(options =>
+//options.UseInMemoryDatabase("TaskDb"));
 
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
+builder.Services.AddScoped<ITaskService, TaskService>();
 builder.Services.AddScoped<ITaskUpdateStrategy, UpdateFullTaskStrategy>();
 builder.Services.AddScoped<ITaskUpdateStrategy, UpdateDueDateStrategy>();
 builder.Services.AddScoped<ITaskUpdateStrategy, UpdateTaskStatusStrategy>();
-builder.Services.AddScoped<ITaskService, TaskService>();
+builder.Services.AddValidatorsFromAssemblyContaining<TaskEntityDTOValidator>();
 
+// Enable CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend",
+        builder => builder
+            .AllowAnyOrigin()  // For testing, allow all origins
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
+builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Use CORS
+app.UseCors("AllowFrontend");
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

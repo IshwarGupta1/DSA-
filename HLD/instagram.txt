@@ -1,8 +1,18 @@
-user --> load balancer -->timeline feed service ---> DB --> S3 or Azure Blob for media
+It should be scalable, availablilty, low latency
+timeline hld
+user --> load balancer -->timeline feed service ---> followDB --> S3 or Azure Blob for media
 								/
 								/
 								/
 								cache(from cache existing feed can fetched)
+								
+media posting hld
+user --> load balancer -->user page service ---> S3 or Azure Blob for media --> create a link --> store in usermedia db
+	
+
+follower/following hld
+user --> load balancer --> timeline feed service --> get list of users --> select for follow --> update on follow db
+	
 								
 3 DBs
 One for User Details
@@ -26,4 +36,47 @@ CREATE TABLE followers (
     UNIQUE (follower_id, following_id) -- Prevent duplicate follow relationships
 );
 
+API
+post call for media post
+api/insta/v1/post
+req body
+{
+	multimedia : 
+	caption :
+	date :
+	song :
+	location
+}
+resp 
+{
+200 OK
+}
 
+get call for timeline
+api/insta/v1/timelinefeed/{userId}
+req body
+{
+	time :
+}
+resp 
+{
+ json list of followers post
+}
+
+post call for follow request
+api/insta/v1/follow/{userId}
+
+req body 
+{
+json body of user details we want to follow 
+}
+resp body
+{
+	200 OK
+}
+
+we can scale up by adding more instance on timeline service
+scaling we can do by partitioning dbs
+using redis cache kinda things for fast retrieval
+
+for timeline enhancement we can use fanout write(auto refreshr) fanout read(when pulled for refresh)

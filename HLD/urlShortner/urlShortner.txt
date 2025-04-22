@@ -1,0 +1,126 @@
+URL Shortener – Flashcard Style
+💡 Functional Requirements
+Shorten long URLs.
+
+Redirect short URLs to long ones.
+
+Allow custom aliases (optional).
+
+Track analytics (optional).
+
+📶 Non-Functional Requirements
+High availability & low latency.
+
+Scalable (100M writes/day, 1B reads/day).
+
+Peak read traffic ≈ 116K req/sec.
+
+📦 Storage Estimation
+100 bytes per long URL.
+
+~365 GB/year (without indexing/analytics).
+
+📁 API Design
+1. Shorten URL
+
+bash
+Copy
+Edit
+POST /api/v1/shorten
+Fields:
+
+long_url
+
+custom_alias (optional)
+
+expiry_date (optional)
+
+2. Redirect URL
+
+bash
+Copy
+Edit
+GET /api/v1/redirect/{short_url}
+3. View Analytics
+
+bash
+Copy
+Edit
+GET /api/v1/analytics/{short_url}
+🧱 Database Design (NoSQL)
+
+Column	Type
+short_url	String (PK)
+long_url	String
+created_at	Timestamp
+expires_at	Timestamp
+custom_alias	String
+Use TTL for expiry-based cleanup.
+
+🔢 Short URL Generation Methods
+Base62 Encoding (IDs → short, unique string).
+
+Hashing (long URL + salt → 7-char string).
+
+Custom Alias stored directly with conflict check.
+
+🧠 Caching
+Redis for hot URLs (20% of URLs get 80% of traffic).
+
+20M popular URLs × 100 bytes ≈ 2 GB in cache.
+
+📊 Analytics
+Track on redirect:
+
+IP address → Geo location
+
+Device → User-agent
+
+Referrer → Source
+
+Use Kafka → Async logging → Analytics DB.
+
+📈 Analytics API Response Example
+json
+Copy
+Edit
+{
+  "total_clicks": 2042,
+  "last_7_days": [{ "date": "2025-04-15", "clicks": 120 }],
+  "top_countries": ["US", "IN", "DE"],
+  "devices": ["Mobile", "Desktop"]
+}
+🛡️ Additional Features
+✅ Rate Limiting (Token Bucket, per IP or API key).
+
+🔐 Validation (long URL, safe links).
+
+⏳ Expiry Handling (auto-clean with background job).
+
+🚫 Blacklist/Spam Detection (Safe Browsing API).
+
+🏗️ High-Level Architecture
+css
+Copy
+Edit
+[Client] → [LB] → [Web Server]
+                    ↓
+        [Shortening/Redirect Service]
+                    ↓
+           [Cache] ←→ [DB]
+                    ↓
+           [Message Queue] → [Analytics Store]
+⚙️ Scaling Strategy
+Stateless services → scale web servers.
+
+DB sharding by short URL or ID.
+
+Async logging → scale consumers.
+
+Cache eviction policy: LRU.
+
+⚖️ Read vs Write Load
+
+Type	Avg Req/sec	Peak
+Write	1.1K	11K
+Read	11K	116K

@@ -1,0 +1,89 @@
+DELIMITER //
+CREATE PROCEDURE CheckGender(IN userId INT)
+BEGIN
+	DECLARE gender VARCHAR(10);
+	SELECT Gender INTO gender FROM Users WHERE id = userId;
+	IF gender = 'MALE'
+	THEN SELECT 'Hello MR. ISHWAR' AS MESSAGE;
+	ELSE
+	THEN SELECT 'Hello MS. ISHWAR' AS MESSAGE;
+	ENDIF;
+END //
+DELIMITER;
+CALL CheckGender(1);
+
+DELIMITER //
+CREATE PROCEDURE InsertOrder(IN userID INT, IN productID INT, IN Quantity INT, OUT OrderID INT)
+BEGIN
+	INSERT INTO Orders 
+	(UserID, ProductID, QuantityVal)
+	VALUES (userID, productID , Quantity);
+	SET OrderID = LAST_INSERT_ID();
+END //
+DELIMITER;
+
+CALL InsertOrder(1,2,10,@id);
+SELECT id AS CreatedOrderId;
+
+DELIMITER //
+CREATE PROCEDURE CountofOrders(IN UserID INT, Out OrdersCount INT)
+BEGIN
+	DECLARE TotalOrders INT;
+	SELECT Count(OrderID) INTO TotalOrders FROM Orders WHERE id= UserID;
+	SET Count = TotalOrders;
+END //
+DELIMITER;
+CALL countUserOrders(32, @count);
+SELECT @count AS TotalOrders;
+
+DELIMITER //
+
+CREATE PROCEDURE DecreaseStock(IN ProductID INT, IN QuantityOrdered INT)
+BEGIN 
+    DECLARE current_quantity INT;
+    SELECT QuantityOrdered INTO current_quantity
+    FROM Orders
+    WHERE id = ProductID;
+    IF current_quantity > 0 THEN
+        UPDATE Orders
+        SET QuantityOrdered = current_quantity - 1
+        WHERE id = ProductID;
+    ELSE
+        SELECT 'No Stock' AS MESSAGE;
+    END IF;
+END //
+DELIMITER
+CALL DecreaseStock(1, 10);
+
+DELIMITER //
+CREATE PROCEDURE PromoteRole(IN UserID INT)
+BEGIN
+	DECLARE Currentrole VARCHAR(20);
+	SELECT Role INTO Currentrole FROM Users WHERE Id = UserID;
+	IF Role = 'admin' THEN
+	UPDATE Users
+	SET Role = 'user'
+	WHERE id = UserID;
+	ELSE
+	SELECT 'Already User' AS Message;
+	ENDIF;
+END //
+DELIMITER
+CALL PromoteRole(10);
+
+DELIMITER //
+CREATE PROCEDURE GetOrders(IN UserID INT)
+BEGIN	
+	SELECT p.Name, o.Quantity FROM Products p JOIN ON ORDERS o WHERE p.Id = o.productID WHERE o.userId = UserId;
+END //
+DELIMITER
+CALL GetOrders(11);
+
+DELIMITER //
+CREATE PROCEDURE DeleteOrders(IN days INT)
+BEGIN
+	DELETE * FROM Orders WHERE Orders.Days < days;
+END //
+DELIMITER
+
+CALL DeleteOrders(2);

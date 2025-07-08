@@ -1,9 +1,0 @@
-class Solution {
-public:
-    bool rotateString(string s, string goal) {
-        string res=s+s;
-        if(res.contains(goal))
-            return true;
-        return false;
-    }
-};

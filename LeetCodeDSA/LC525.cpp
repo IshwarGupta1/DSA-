@@ -6,7 +6,7 @@ public:
         int sum = 0;
         for (int i = 0; i < nums.size(); i++) {
             sum += (nums[i] == 0) ? -1 : 1;
-            prefixSum[i] = sum;QQQ
+            prefixSum[i] = sum;
         }
 
         int maxLen = 0;
